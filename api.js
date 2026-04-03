@@ -109,7 +109,7 @@ app.post('/produtos', (req, res) => {
     }
 
     const novo = {
-        id: produtos.length + 1,
+        id: produtos.length ? Math.max(...produtos.map(p => p.id)) + 1 : 1,
         nome,
         tipo,
         funcionamento,
@@ -131,7 +131,7 @@ app.post('/produtos/pistola', (req, res) => {
     if (erro) return res.status(400).json({ erro });
 
     const novo = {
-        id: produtos.length + 1,
+        id: produtos.length ? Math.max(...produtos.map(p => p.id)) + 1 : 1,
         nome,
         tipo,
         funcionamento,
@@ -152,7 +152,7 @@ app.post('/produtos/rifle', (req, res) => {
     if (erro) return res.status(400).json({ erro });
 
     const novo = {
-        id: produtos.length + 1,
+        id: produtos.length ? Math.max(...produtos.map(p => p.id)) + 1 : 1,
         nome,
         tipo,
         funcionamento,
@@ -173,7 +173,7 @@ app.post('/produtos/sniper', (req, res) => {
     if (erro) return res.status(400).json({ erro });
 
     const novo = {
-        id: produtos.length + 1,
+        id: produtos.length ? Math.max(...produtos.map(p => p.id)) + 1 : 1,
         nome,
         tipo,
         funcionamento,
@@ -194,7 +194,7 @@ app.post('/produtos/escopeta', (req, res) => {
     if (erro) return res.status(400).json({ erro });
 
     const novo = {
-        id: produtos.length + 1,
+        id: produtos.length ? Math.max(...produtos.map(p => p.id)) + 1 : 1,
         nome,
         tipo,
         funcionamento,
@@ -204,6 +204,25 @@ app.post('/produtos/escopeta', (req, res) => {
 
     produtos.push(novo);
     res.status(201).json(novo);
+});
+
+app.patch('/produtos/:id', (req, res) => {
+    const id = parseInt(req.params.id);
+    const produto = produtos.find(p => p.id === id);
+
+    if (!produto){
+        return res.status(404).json({ mensagem: "Produto não encontrado" });
+    }
+
+    const { nome, tipo, funcionamento, pais, preco } = req.body;
+
+    if (nome !== undefined) produto.nome = nome;
+    if (tipo !== undefined) produto.tipo = tipo;
+    if (funcionamento !== undefined) produto.funcionamento = funcionamento;
+    if (pais !== undefined) produto.pais = pais;
+    if (preco !== undefined) produto.preco = preco;
+
+    res.json(produto);
 });
 
 app.delete('/produtos/:id', (req, res) => {
