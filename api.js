@@ -21,6 +21,70 @@ let produtos = [
         funcionamento: "Elétrica",
         pais: "EUA",
         preco: 2500
+    },
+    {
+        id: 3,
+        nome: "M17",
+        tipo: "Rifle",
+        funcionamento: "Elétrica",
+        pais: "EUA",
+        preco: 2300
+    },
+    {
+        id: 4,
+        nome: "M1911",
+        tipo: "Pistola",
+        funcionamento: "Gbb",
+        pais: "EUA",
+        preco: 900
+    },
+    {
+        id: 5,
+        nome: "Benelli",
+        tipo: "Escopeta",
+        funcionamento: "Gbb",
+        pais: "Itália",
+        preco: 1500
+    },
+    {
+        id: 6,
+        nome: "AK-47",
+        tipo: "Rifle",
+        funcionamento: "Elétrica",
+        pais: "Rússia",
+        preco: 2500
+    },
+    {
+        id: 7,
+        nome: "PMM",
+        tipo: "Pistola",
+        funcionamento: "Gbb",
+        pais: "Rússia",
+        preco: 700
+    },
+    {
+        id: 8,
+        nome: "Makarov",
+        tipo: "Pistola",
+        funcionamento: "Gbb",
+        pais: "Rússia",
+        preco: 850
+    },
+    {
+        id: 9,
+        nome: "Barret",
+        tipo: "Sniper",
+        funcionamento: "Gbb",
+        pais: "EUA",
+        preco: 3000
+    },
+    {
+        id: 10,
+        nome: "PARAFAL",
+        tipo: "Rifle",
+        funcionamento: "Elétrica",
+        pais: "Brasil",
+        preco: 2500
     }
 ];
 
